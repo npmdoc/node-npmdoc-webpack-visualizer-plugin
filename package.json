@@ -1,17 +1,40 @@
 {
-    "buildNpmdoc":"webpack-visualizer-plugin",
+    "author": "kai zhu <kaizhu256@gmail.com>",
+    "buildNpmdoc": "webpack-visualizer-plugin",
+    "description": "api documentation for [webpack-visualizer-plugin (v0.1.11)](https://github.com/chrisbateman/webpack-visualizer#readme) [![npm package](https://img.shields.io/npm/v/npmdoc-webpack-visualizer-plugin.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-webpack-visualizer-plugin) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-webpack-visualizer-plugin.svg)](https://travis-ci.org/npmdoc/node-npmdoc-webpack-visualizer-plugin)",
     "devDependencies": {
-        "webpack-visualizer-plugin": "*",
         "electron-lite": "kaizhu256/node-electron-lite#alpha",
-        "utility2": "kaizhu256/node-utility2#alpha"
+        "utility2": "kaizhu256/node-utility2#alpha",
+        "webpack-visualizer-plugin": "*"
     },
-    "name":"npmdoc-webpack-visualizer-plugin",
+    "engines": {
+        "node": ">=4.0"
+    },
+    "homepage": "https://github.com/npmdoc/node-npmdoc-webpack-visualizer-plugin",
+    "keywords": [
+        "documentation",
+        "webpack-visualizer-plugin"
+    ],
+    "license": "MIT",
+    "main": "lib.npmdoc_webpack_visualizer_plugin.js",
+    "name": "npmdoc-webpack-visualizer-plugin",
+    "nameAlias": "npmdoc_webpack_visualizer_plugin",
+    "nameOriginal": "npmdoc-webpack-visualizer-plugin",
+    "os": [
+        "darwin",
+        "linux"
+    ],
     "repository": {
         "type": "git",
         "url": "https://github.com/npmdoc/node-npmdoc-webpack-visualizer-plugin"
     },
     "scripts": {
-        "build-ci": "utility2 shReadmeTest build_ci.sh"
+        "build-ci": "utility2 shReadmeTest build_ci.sh",
+        "env": "env",
+        "heroku-postbuild": "(set -e; npm install \"kaizhu256/node-utility2#alpha\"; utility2 shDeployHeroku)",
+        "postinstall": "if [ -f npm_scripts.sh ]; then ./npm_scripts.sh postinstall; fi",
+        "start": "(set -e; export PORT=${PORT:-8080}; utility2 start test.js)",
+        "test": "(set -e; export PORT=$(utility2 shServerPortRandom); utility2 test test.js)"
     },
     "version": "0.0.1"
 }
